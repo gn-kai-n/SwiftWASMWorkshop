@@ -22,6 +22,8 @@ private func initializeJSKit() {
 
 private func initializeTitle(_ document: JSObject) {
     // Exercise 1: Change the title of the document to "⏱️ MeetingMeter ⏱️"
+    document.title = "⏱️ MeetingMeter ⏱️"
+    
 }
 
 private func initializeCSS(_ document: JSObject) {
@@ -36,8 +38,16 @@ private func initializeCSS(_ document: JSObject) {
         style.textContent = CSS STYLE HERE;`;
         document.head.append(style);
     */
+    var style = document.createElement!("style")
+    style.textContent = appCss.jsValue
+    _ = document.head.append(style)
 }
 
 private func initializeApp(_ document: JSObject) {
     // Exercise 3: The app is quite simple, there is only 1 view implemented MVP. Initialize the dependency tree here and get the app running.
+    let meter = MeetingMeter()
+    let presenter = MeetingMeterPresenter(meetingMeter: meter)
+    let view = MeetingMeterJSKitView(document: document, presenter: presenter)
+    presenter.view = view
+    presenter.resume()
 }
