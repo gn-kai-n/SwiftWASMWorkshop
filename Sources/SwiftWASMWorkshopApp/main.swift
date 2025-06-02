@@ -39,5 +39,5 @@ private func initializeCSS(_ document: JSObject) {
 }
 
 private func initializeApp(_ document: JSObject) {
-    // Exercise 3: The app is quite simple, theere is only 1 view implemented MVP. Initialize the dependency tree here and get the app running.
+    // Exercise 3: The app is quite simple, there is only 1 view implemented MVP. Initialize the dependency tree here and get the app running.
 }
